@@ -2,19 +2,24 @@
   "schemaVersion": 3,
   "payloads": [
     {
-      "payloadId": "r12s-S721BXXSCDZF3",
-      "displayName": "Galaxy S24 FE | Kernel 6.1.157",
+      "payloadId": "r12s-S721WVLSCDZF4",
+      "displayName": "Galaxy S24 FE (Canada) | Kernel 6.1.157",
       "models": [
         "SM-S721W"
       ],
-      "kernelVersions": ["6.1.157"],
+      "kernelVersions": [
+        "6.1.157"
+      ],
+      "requiresFreshP0Session": true,
       "exploit": {
-        "url": "https://raw.githubusercontent.com/malekh1/root-my-Galaxy-payload/main/artifacts/r12s-S721BXXSCDZF3/cve-2026-43499-app.so",
-        "size": 78472
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
+        "size": 104128
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/kernelsu/ksud-r12s-S721BXXSCDZF3-kdp",
-        "size": 6419768
+        "size": 6419768,
+        "sha256": "f37971d1673609b44c59de1240b59a72f3ba6cbe32e9b0873c8398a945a9e97b",
+        "version": "3.2.5"
       }
     }
   ]
