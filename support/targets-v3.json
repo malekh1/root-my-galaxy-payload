@@ -34,7 +34,7 @@
       "flavor": "resukisu",
       "requiresFreshP0Session": true,
       "exploit": {
-        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
+         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
         "size": 104128
       },
       "kernelsu": {
