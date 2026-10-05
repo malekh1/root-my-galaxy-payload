@@ -38,7 +38,7 @@
         "size": 104128
       },
       "kernelsu": {
-        "url": "https://raw.githubusercontent.com/rushiranpise/Root-My-Galaxy-Payloads/main/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/refs/heads/main/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
         "size": 4387720,
         "sha256": "46b4ea413474832a0463da3569161d93099a414abc785fb3cd41b9fab84c45ec",
         "version": "4.2.0-rc3"
