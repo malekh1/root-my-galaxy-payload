@@ -1,24 +1,48 @@
 {
-  "payloadId": "r12s-S721WVLSCDZF4-rsksu420",
-  "displayName": "Galaxy S24 FE (Canada) | Kernel 6.1.157 | ReSukiSU 4.2.0-rc3",
-  "models": [
-    "SM-S721W"
-  ],
-  "kernelVersions": [
-    "6.1.157"
-  ],
-  "flavor": "resukisu",
-  "requiresFreshP0Session": true,
-
-  "exploit": {
-    "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
-    "size": 104128
-  },
-
-  "kernelsu": {
-    "url": "https://raw.githubusercontent.com/rushiranpise/Root-My-Galaxy-Payloads/main/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
-    "size": 4387720,
-    "sha256": "46b4ea413474832a0463da3569161d93099a414abc785fb3cd41b9fab84c45ec",
-    "version": "4.2.0-rc3"
-  }
+  "schemaVersion": 3,
+  "payloads": [
+    {
+      "payloadId": "r12s-S721WVLSCDZF4",
+      "displayName": "Galaxy S24 FE (Canada) | Kernel 6.1.157 | KernelSU 3.2.5",
+      "models": [
+        "SM-S721W"
+      ],
+      "kernelVersions": [
+        "6.1.157"
+      ],
+      "requiresFreshP0Session": true,
+      "exploit": {
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
+        "size": 104128
+      },
+      "kernelsu": {
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/kernelsu/ksud-r12s-S721BXXSCDZF3-kdp",
+        "size": 6419768,
+        "sha256": "f37971d1673609b44c59de1240b59a72f3ba6cbe32e9b0873c8398a945a9e97b",
+        "version": "3.2.5"
+      }
+    },
+    {
+      "payloadId": "r12s-S721WVLSCDZF4-rsksu420",
+      "displayName": "Galaxy S24 FE (Canada) | Kernel 6.1.157 | ReSukiSU 4.2.0-rc3",
+      "models": [
+        "SM-S721W"
+      ],
+      "kernelVersions": [
+        "6.1.157"
+      ],
+      "flavor": "resukisu",
+      "requiresFreshP0Session": true,
+      "exploit": {
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
+        "size": 104128
+      },
+      "kernelsu": {
+        "url": "https://raw.githubusercontent.com/rushiranpise/Root-My-Galaxy-Payloads/main/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
+        "size": 4387720,
+        "sha256": "46b4ea413474832a0463da3569161d93099a414abc785fb3cd41b9fab84c45ec",
+        "version": "4.2.0-rc3"
+      }
+    }
+  ]
 }
