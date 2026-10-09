@@ -31,9 +31,9 @@ concurrency:
 
 env:
   B_TARGET: r12s-S721BXXSCDZF3
-  W_TARGET: r12s-S721WVLSCDZF4
+  W_TARGET: r12s-S721WVLSDDZG1
   B_ARTIFACT_PATH: artifacts/r12s-S721BXXSCDZF3/cve-2026-43499-app.so
-  W_ARTIFACT_PATH: artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so
+  W_ARTIFACT_PATH: artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so
 
 jobs:
   build:
@@ -51,11 +51,11 @@ jobs:
         with:
           packages: 'platform-tools platforms;android-35'
           accept-android-sdk-licenses: true
-
-      - name: Set up NDK r28
+      
+      - name: Set up NDK r30
         uses: nttld/setup-ndk@v1
         with:
-          ndk-version: r28
+          ndk-version: r30
 
       - name: Resolve NDK path
         shell: bash
@@ -81,7 +81,7 @@ jobs:
           if [ "${{ github.event_name }}" = "push" ]; then
             build_b=1
             changed="$(git diff --name-only HEAD^ HEAD)"
-            if printf '%s\n' "$changed" | grep -q '^src/targets/r12s-S721WVLSCDZF4/'; then
+            if printf '%s\n' "$changed" | grep -q '^src/targets/r12s-S721WVLSDDZG1/'; then
               build_w=1
             fi
           fi
@@ -120,7 +120,7 @@ jobs:
           test "$(stat -c %s "$output")" -le 104128
           mkdir -p "$(dirname "${W_ARTIFACT_PATH}")" diagnostics
           install -m 0644 "$output" "${W_ARTIFACT_PATH}"
-          sha256sum "${W_ARTIFACT_PATH}" | tee diagnostics/s721w-dzf4-app.sha256
+          sha256sum "${W_ARTIFACT_PATH}" | tee diagnostics/s721w-ddzg1-app.sha256
 
       - name: Verify artifacts
         shell: bash
