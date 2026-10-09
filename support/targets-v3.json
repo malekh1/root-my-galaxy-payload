@@ -2,8 +2,8 @@
   "schemaVersion": 3,
   "payloads": [
     {
-      "payloadId": "r12s-S721WVLSCDZF4",
-      "displayName": "Galaxy S24 FE (Canada) | Kernel 6.1.157 | KernelSU 3.2.5",
+      "payloadId": "r12s-S721WVLSDDZG1",
+      "displayName": "Galaxy S24 FE Canada DDZG1 | KernelSU 3.2.5",
       "models": [
         "SM-S721W"
       ],
@@ -12,8 +12,9 @@
       ],
       "requiresFreshP0Session": true,
       "exploit": {
-        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
-        "size": 104128
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so",
+        "size": 104128,
+        "sha256": "1e81c851f58709dd2653375ab06207222bc75aa67282f2a319d69105907717e0"
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/kernelsu/ksud-r12s-S721BXXSCDZF3-kdp",
@@ -23,8 +24,8 @@
       }
     },
     {
-      "payloadId": "r12s-S721WVLSCDZF4-rsksu420",
-      "displayName": "Galaxy S24 FE (Canada) | Kernel 6.1.157 | ReSukiSU 4.2.0-rc3",
+      "payloadId": "r12s-S721WVLSDDZG1-rsksu420",
+      "displayName": "Galaxy S24 FE Canada DDZG1 | ReSukiSU 4.2.0-rc3",
       "models": [
         "SM-S721W"
       ],
@@ -34,8 +35,9 @@
       "flavor": "resukisu",
       "requiresFreshP0Session": true,
       "exploit": {
-        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSCDZF4/cve-2026-43499-app.so",
-        "size": 104128
+        "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so",
+        "size": 104128,
+        "sha256": "1e81c851f58709dd2653375ab06207222bc75aa67282f2a319d69105907717e0"
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/main/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
