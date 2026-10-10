@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 20
     env:
       TARGET: r12s-S721WVLSDDZG1
-      EXPECTED_LABEL: r12s-S721WVLSDDZG1-app-prodguard7-safe26x8
+      EXPECTED_LABEL: r12s-S721WVLSDDZG1-app-prodguard8-safe26x16
 
     steps:
       - name: Check out reclaim-diag
@@ -111,12 +111,12 @@ jobs:
             echo "Published artifact is already current"
             exit 0
           fi
-          git commit -m "Publish DDZG1 prodguard7 safe26x8 payload"
+          git commit -m "Publish DDZG1 prodguard8 safe26x16 payload"
           git push origin HEAD:reclaim-diag
 
       - name: Upload verified payload
         uses: actions/upload-artifact@v4
         with:
-          name: DDZG1-prodguard7-safe26x8
+          name: DDZG1-prodguard8-safe26x16
           path: build/r12s-S721WVLSDDZG1/cve-2026-43499-app.release.so
           if-no-files-found: error
