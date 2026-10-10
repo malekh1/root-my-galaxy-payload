@@ -1,0 +1,117 @@
+name: Build and publish DDZG1 payload
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - reclaim-diag
+    paths:
+      - Makefile
+      - src/**
+      - .github/workflows/build-ddzg1.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ddzg1-reclaim-diag-publish
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TARGET: r12s-S721WVLSDDZG1
+      EXPECTED_LABEL: r12s-S721WVLSDDZG1-app-prodguard7-safe26x8
+
+    steps:
+      - name: Check out reclaim-diag
+        uses: actions/checkout@v4
+        with:
+          ref: reclaim-diag
+          fetch-depth: 0
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android NDK r30
+        shell: bash
+        run: |
+          set -euo pipefail
+          NDK_PACKAGE="$(
+            sdkmanager --list |
+              awk -F'|' '/^[[:space:]]*ndk;30\./ {gsub(/[[:space:]]/, "", $1); print $1}' |
+              sort -V |
+              tail -n 1
+          )"
+          test -n "$NDK_PACKAGE"
+          sdkmanager "$NDK_PACKAGE"
+          NDK_VERSION="${NDK_PACKAGE#ndk;}"
+          echo "ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Build release payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          make -B TARGET="$TARGET" release
+
+      - name: Verify payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="build/$TARGET/cve-2026-43499-app.release.so"
+          file "$OUT"
+          test "$(stat -c %s "$OUT")" -eq 104128
+          strings "$OUT" | grep -F "$EXPECTED_LABEL"
+          grep -F '#define APP_FOPS_MIN_OBJECT_INDEX 24' "src/targets/$TARGET/target.h"
+          grep -F '#define APP_FOPS_MAX_OBJECT_INDEX 26' "src/targets/$TARGET/target.h"
+          grep -F '#define FOPS_KERNEL_PAGE_SETUP_ATTEMPTS 8' "src/targets/$TARGET/target.h"
+          sha256sum "$OUT"
+
+      - name: Update published artifact and manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="build/$TARGET/cve-2026-43499-app.release.so"
+          ARTIFACT="artifacts/$TARGET/cve-2026-43499-app.so"
+          MANIFEST="support/targets-v3.json"
+          OLD_SHA="$(sha256sum "$ARTIFACT" | cut -d' ' -f1)"
+          cp "$OUT" "$ARTIFACT"
+          NEW_SHA="$(sha256sum "$ARTIFACT" | cut -d' ' -f1)"
+          python3 - "$MANIFEST" "$OLD_SHA" "$NEW_SHA" <<'PY'
+          import pathlib
+          import sys
+
+          path = pathlib.Path(sys.argv[1])
+          old_sha, new_sha = sys.argv[2:4]
+          text = path.read_text()
+          count = text.count(old_sha)
+          if count != 2:
+              raise SystemExit(f"expected 2 manifest SHA entries, found {count}")
+          path.write_text(text.replace(old_sha, new_sha))
+          print(f"updated manifest SHA: {old_sha} -> {new_sha}")
+          PY
+
+      - name: Commit published payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            "artifacts/$TARGET/cve-2026-43499-app.so" \
+            support/targets-v3.json
+          if git diff --cached --quiet; then
+            echo "Published artifact is already current"
+            exit 0
+          fi
+          git commit -m "Publish DDZG1 prodguard7 safe26x8 payload"
+          git push origin HEAD:reclaim-diag
+
+      - name: Upload verified payload
+        uses: actions/upload-artifact@v4
+        with:
+          name: DDZG1-prodguard7-safe26x8
+          path: build/r12s-S721WVLSDDZG1/cve-2026-43499-app.release.so
+          if-no-files-found: error
