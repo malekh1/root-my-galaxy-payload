@@ -3,7 +3,7 @@
   "payloads": [
     {
       "payloadId": "r12s-S721WVLSDDZG1",
-      "displayName": "Galaxy S24 FE Canada DDZG1 Guarded Production 2 | KernelSU 3.2.5",
+      "displayName": "Galaxy S24 FE Canada DDZG1 Guarded Production | KernelSU 3.2.5",
       "models": [
         "SM-S721W"
       ],
@@ -14,7 +14,7 @@
       "exploit": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so",
         "size": 104128,
-        "sha256": "95fea250b1ca7315d94d08b6cd8718dd4303d6c1bca45d596216644d6c939091"
+        "sha256": "07a46444454fb1343a975265bb6082e14d3d52fdb3fc52a8f35ffdec3823f757"
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/kernelsu/ksud-r12s-S721BXXSCDZF3-kdp",
@@ -25,7 +25,7 @@
     },
     {
       "payloadId": "r12s-S721WVLSDDZG1-rsksu420",
-      "displayName": "Galaxy S24 FE Canada DDZG1 Guarded Production 2 | ReSukiSU 4.2.0-rc3",
+      "displayName": "Galaxy S24 FE Canada DDZG1 Guarded Production | ReSukiSU 4.2.0-rc3",
       "models": [
         "SM-S721W"
       ],
@@ -37,7 +37,7 @@
       "exploit": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so",
         "size": 104128,
-        "sha256": "95fea250b1ca7315d94d08b6cd8718dd4303d6c1bca45d596216644d6c939091"
+        "sha256": "07a46444454fb1343a975265bb6082e14d3d52fdb3fc52a8f35ffdec3823f757"
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
