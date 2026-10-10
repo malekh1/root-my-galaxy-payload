@@ -14,7 +14,7 @@
       "exploit": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so",
         "size": 104128,
-        "sha256": "80036baec9bf6f3c03b0cd75ec2aa8c8e2cdd30db45cbf0711b4212bed5e17ab"
+        "sha256": "a6bb43675eb7b5a83c934b49fd899ab86560cfde6dcee25eb2727eb8fbb4693b"
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/kernelsu/ksud-r12s-S721BXXSCDZF3-kdp",
@@ -37,7 +37,7 @@
       "exploit": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/artifacts/r12s-S721WVLSDDZG1/cve-2026-43499-app.so",
         "size": 104128,
-        "sha256": "80036baec9bf6f3c03b0cd75ec2aa8c8e2cdd30db45cbf0711b4212bed5e17ab"
+        "sha256": "a6bb43675eb7b5a83c934b49fd899ab86560cfde6dcee25eb2727eb8fbb4693b"
       },
       "kernelsu": {
         "url": "https://raw.githubusercontent.com/malekh1/root-my-galaxy-payload/reclaim-diag/kernelsu/ksud-rsksu-r12s-S721BXXSCDZF3-kdp",
