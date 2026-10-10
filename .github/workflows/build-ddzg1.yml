@@ -71,7 +71,7 @@ jobs:
           strings "$OUT" | grep -F "$EXPECTED_LABEL"
           grep -F '#define APP_FOPS_MIN_OBJECT_INDEX 24' "src/targets/$TARGET/target.h"
           grep -F '#define APP_FOPS_MAX_OBJECT_INDEX 26' "src/targets/$TARGET/target.h"
-          grep -F '#define FOPS_KERNEL_PAGE_SETUP_ATTEMPTS 8' "src/targets/$TARGET/target.h"
+          grep -F '#define FOPS_KERNEL_PAGE_SETUP_ATTEMPTS 16' "src/targets/$TARGET/target.h"
           sha256sum "$OUT"
 
       - name: Update published artifact and manifest
