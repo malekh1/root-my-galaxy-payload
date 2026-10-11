@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 20
     env:
       TARGET: r12s-S721WVLSDDZG1
-      EXPECTED_LABEL: r12s-S721WVLSDDZG1-app-prodguard8-safe26x16
+      EXPECTED_LABEL: r12s-S721WVLSDDZG1-app-prodguard9-u1geom
 
     steps:
       - name: Check out reclaim-diag
@@ -69,9 +69,9 @@ jobs:
           file "$OUT"
           test "$(stat -c %s "$OUT")" -eq 104128
           strings "$OUT" | grep -F "$EXPECTED_LABEL"
-          grep -F '#define APP_FOPS_MIN_OBJECT_INDEX 24' "src/targets/$TARGET/target.h"
-          grep -F '#define APP_FOPS_MAX_OBJECT_INDEX 26' "src/targets/$TARGET/target.h"
-          grep -F '#define FOPS_KERNEL_PAGE_SETUP_ATTEMPTS 16' "src/targets/$TARGET/target.h"
+          grep -F '#define APP_FOPS_MIN_OBJECT_INDEX 12' "src/targets/$TARGET/target.h"
+          grep -F '#define APP_FOPS_MAX_OBJECT_INDEX 30' "src/targets/$TARGET/target.h"
+          grep -F '#define FOPS_KERNEL_PAGE_SETUP_ATTEMPTS 8' "src/targets/$TARGET/target.h"
           sha256sum "$OUT"
 
       - name: Update published artifact and manifest
@@ -111,12 +111,12 @@ jobs:
             echo "Published artifact is already current"
             exit 0
           fi
-          git commit -m "Publish DDZG1 prodguard8 safe26x16 payload"
+          git commit -m "Publish DDZG1 prodguard9 U1 geometry payload"
           git push origin HEAD:reclaim-diag
 
       - name: Upload verified payload
         uses: actions/upload-artifact@v4
         with:
-          name: DDZG1-prodguard8-safe26x16
+          name: DDZG1-prodguard9-u1geom
           path: build/r12s-S721WVLSDDZG1/cve-2026-43499-app.release.so
           if-no-files-found: error
